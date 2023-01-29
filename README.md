@@ -22,3 +22,10 @@ https://fontawesome.com/docs/web/use-with/react/
 - `npm i --save @fortawesome/react-fontawesome@latest`
 
 https://fontawesome.com/docs/web/use-with/react/add-icons
+
+login with google
+
+https://firebase.google.com/docs/auth/web/google-signin?hl=ja
+
+.env.local
+need `REACT_APP_` prefix
