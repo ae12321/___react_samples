@@ -29,6 +29,7 @@
   cursor: pointer;
   color: white;
   border-radius: 10px;
+  transition: all 0.2s;
 }
 
 .btn button:hover {
