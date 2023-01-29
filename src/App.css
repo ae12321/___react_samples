@@ -13,3 +13,24 @@
   gap: 10px;
   margin-top: 10px;
 }
+
+.btn {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.btn button {
+  padding: 10px 30px;
+  background-color: blue;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 10px;
+}
+
+.btn button:hover {
+  transform: translateY(10px);
+}

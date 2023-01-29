@@ -18,7 +18,7 @@ function App() {
     const fetchPokemonData = async () => {
       // all pokemon data
       const res = await getAllPokemon(initialURL);
-      console.log(res);
+      // console.log(res);
 
       setNextURL(res.next);
       setPrevURL(res.previous);
@@ -51,6 +51,8 @@ function App() {
     if (prevURL) {
       const res = await getAllPokemon(prevURL);
       await loadPokemon(res.results);
+      setPrevURL(res.previous);
+      setNextURL(res.next);
     }
 
     setLoading(false);
@@ -60,6 +62,8 @@ function App() {
     if (nextURL) {
       const res = await getAllPokemon(nextURL);
       await loadPokemon(res.results);
+      setPrevURL(res.previous);
+      setNextURL(res.next);
     }
 
     setLoading(false);
