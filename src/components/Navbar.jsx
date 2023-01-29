@@ -8,11 +8,12 @@ import {
   faHouse,
   faCalendarPlus,
   faRightToBracket,
+  faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 
 // const element = <FontAwesomeIcon icon={faEnvelope} />;
 
-const Navbar = () => {
+const Navbar = ({ isAuth }) => {
   return (
     <nav>
       <Link to={'/'}>
@@ -23,9 +24,15 @@ const Navbar = () => {
         <FontAwesomeIcon icon={faCalendarPlus} />
         create
       </Link>
-      <Link to={'/login'}>
-        <FontAwesomeIcon icon={faRightToBracket} /> login
-      </Link>
+      {isAuth ? (
+        <Link to={'/logout'}>
+          <FontAwesomeIcon icon={faSignOut} /> logout
+        </Link>
+      ) : (
+        <Link to={'/login'}>
+          <FontAwesomeIcon icon={faRightToBracket} /> login
+        </Link>
+      )}
     </nav>
   );
 };
