@@ -27,5 +27,9 @@ login with google
 
 https://firebase.google.com/docs/auth/web/google-signin?hl=ja
 
+document search `google login`
+
 .env.local
 need `REACT_APP_` prefix
+
+auth data save localstorage, because lost data for reload
