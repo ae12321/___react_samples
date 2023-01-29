@@ -33,3 +33,15 @@ document search `google login`
 need `REACT_APP_` prefix
 
 auth data save localstorage, because lost data for reload
+
+add data to firestore
+
+https://firebase.google.com/docs/firestore/manage-data/add-data?hl=ja
+
+if manually setup doc , then `Set a document`
+
+setDoc, addDoc
+
+Uncaught (in promise) FirebaseError: Missing or insufficient permissions.
+-> edit firebase rule
+-> allow read, write: if false; -> allow read, write: if true;
