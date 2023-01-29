@@ -7,3 +7,7 @@ firestore
 created project settning > myapp
 
 - `npm install firebase`
+
+easy routing
+
+- `npm install react-router-dom`
