@@ -8,6 +8,8 @@
   display: grid;
   /* auto fit divided by 3 */
   grid-template-columns: 1fr 1fr 1fr;
+  /* 1fr left side to center */
+  place-items: center;
   gap: 10px;
   margin-top: 10px;
 }
