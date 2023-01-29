@@ -4,10 +4,12 @@ import Home from './components/Home';
 import Create from './components/Create';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/create" element={<Create />}></Route>
