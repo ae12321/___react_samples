@@ -11,14 +11,21 @@ function App() {
 
   const [pokemonData, setPokemonData] = useState([]);
 
+  const [nextURL, setNextURL] = useState('');
+  const [prevURL, setPrevURL] = useState('');
+
   useEffect(() => {
     const fetchPokemonData = async () => {
       // all pokemon data
       const res = await getAllPokemon(initialURL);
+      console.log(res);
+
+      setNextURL(res.next);
+      setPrevURL(res.previous);
 
       // detail data
       // res = {count: number; next: string(url); previous: ?; results: [{ name: string; url: string(url) }]}
-      loadPokemon(res.results);
+      await loadPokemon(res.results);
 
       // console.log(res);
       setLoading(false);
@@ -37,7 +44,26 @@ function App() {
     setPokemonData(allDetail);
   };
 
-  console.log(pokemonData);
+  // console.log(pokemonData);
+
+  const handlePrevPage = async () => {
+    setLoading(true);
+    if (prevURL) {
+      const res = await getAllPokemon(prevURL);
+      await loadPokemon(res.results);
+    }
+
+    setLoading(false);
+  };
+  const handleNextPage = async () => {
+    setLoading(true);
+    if (nextURL) {
+      const res = await getAllPokemon(nextURL);
+      await loadPokemon(res.results);
+    }
+
+    setLoading(false);
+  };
 
   return (
     <>
@@ -51,6 +77,11 @@ function App() {
               {pokemonData.map((pokemon, i) => {
                 return <Card key={i} pokemon={pokemon}></Card>;
               })}
+            </div>
+
+            <div className="btn">
+              <button onClick={handlePrevPage}>Prev</button>
+              <button onClick={handleNextPage}>Next</button>
             </div>
           </>
         )}
