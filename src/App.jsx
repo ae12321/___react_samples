@@ -6,6 +6,7 @@ import uuid from 'react-uuid';
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [activeNote, setActiveNote] = useState(false);
 
   const handleAddNote = () => {
     console.log('add note');
@@ -27,6 +28,8 @@ function App() {
         handleDeleteNote={handleDeleteNote}
         handleAddNote={handleAddNote}
         notes={notes}
+        activeNote={activeNote}
+        setActiveNote={setActiveNote}
       />
       <Main />
     </div>

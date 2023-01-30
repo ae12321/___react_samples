@@ -39,3 +39,6 @@ button {
 .sidebar-note:hover {
   background-color: #eee;
 }
+.sidebar-note.active {
+  background-color: darkgray;
+}
