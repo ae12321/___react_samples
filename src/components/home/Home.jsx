@@ -1,7 +1,7 @@
 import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { db } from '../../firebase';
+import { auth, db } from '../../firebase';
 
 import './Home.css';
 
@@ -43,7 +43,9 @@ const Home = () => {
             <div className="home_post">{post.postText}</div>
             <div className="home_parts">
               <h4>{post.author.username}</h4>
-              <button onClick={() => handleDelete(post.id)}>Delete</button>
+              {post.author.id === auth.currentUser.uid && (
+                <button onClick={() => handleDelete(post.id)}>Delete</button>
+              )}
             </div>
           </div>
         );
