@@ -32,6 +32,18 @@ function App() {
     return notes.find((note) => note.id === id);
   };
   console.log(getActiveNote(activeNote));
+
+  const updateNotes = (updatedNote) => {
+    const notesUpdated = notes.map((note) => {
+      if (note.id === updatedNote.id) {
+        return updatedNote;
+      } else {
+        return note;
+      }
+    });
+    setNotes(notesUpdated);
+  };
+
   return (
     <div className="App">
       <SideBar
@@ -41,7 +53,7 @@ function App() {
         activeNote={activeNote}
         setActiveNote={setActiveNote}
       />
-      <Main activeNote={getActiveNote(activeNote)} />
+      <Main activeNote={getActiveNote(activeNote)} updateNotes={updateNotes} />
     </div>
   );
 }
