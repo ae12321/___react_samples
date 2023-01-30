@@ -2,44 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { Provider } from 'react-redux';
 
 import { createStore } from 'redux';
+import { allReducers } from './reducers';
 
-// actions -> increment, decrement
-const increment = () => {
-  return {
-    type: 'INCREMENT',
-  };
-};
-const decrement = () => {
-  return {
-    type: 'DECREMENT',
-  };
-};
-// reducer
-const counterReducer = (state = 0, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1;
-  }
-};
-// store
-let store = createStore(counterReducer);
+// install redux devtools
+// and https://github.com/zalmoxisus/redux-devtools-extension#usage 's window.~~
+// if above doing, F12's  Redux dont work
+const store = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-// subscribe when
-store.subscribe(() => {
-  console.log(store.getState());
-});
-store.dispatch(increment());
-store.dispatch(increment());
-store.dispatch(decrement());
-store.dispatch(decrement());
-store.dispatch(decrement());
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
