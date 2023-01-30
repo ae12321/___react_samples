@@ -50,6 +50,11 @@ function App() {
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes));
   }, [notes]);
+  useEffect(() => {
+    if (notes.length > 0) {
+      setActiveNote(notes[0].id);
+    }
+  }, []);
 
   return (
     <div className="App">
