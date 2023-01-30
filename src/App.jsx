@@ -15,7 +15,7 @@ function App() {
       {
         id: uuid(),
         title: 'note title xx',
-        content: 'new note created!',
+        content: '',
         lastEditBy: Date.now(),
       },
     ];

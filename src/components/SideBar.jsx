@@ -8,6 +8,7 @@ const SideBar = ({
   handleAddNote,
   notes,
 }) => {
+  const sortedNotes = notes.sort((a, b) => b.lastEditBy - a.lastEditBy);
   return (
     <div className="sidebar">
       <div className="sidebar-header">
@@ -15,14 +16,14 @@ const SideBar = ({
         <button onClick={handleAddNote}>Add</button>
       </div>
       <div className="sidebar-notes">
-        {notes.map((note) => (
+        {sortedNotes.map((note) => (
           <div
             key={note.id}
             className={`sidebar-note ${activeNote === note.id && 'active'}`}
             onClick={() => setActiveNote(note.id)}
           >
             <div className="sidebar-note-title">
-              <strong>{note.id + ':' + note.title}</strong>
+              <strong>{note.title}</strong>
               <button onClick={() => handleDeleteNote(note.id)}>Delete</button>
             </div>
             <p>{note.content}</p>
