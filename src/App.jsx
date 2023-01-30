@@ -3,9 +3,12 @@ import './App.css';
 import Main from './components/Main';
 import SideBar from './components/SideBar';
 import uuid from 'react-uuid';
+import { useEffect } from 'react';
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem('notes')) || []
+  );
   const [activeNote, setActiveNote] = useState(false);
 
   const handleAddNote = () => {
@@ -43,6 +46,10 @@ function App() {
     });
     setNotes(notesUpdated);
   };
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <div className="App">
