@@ -1,5 +1,6 @@
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
 
 import './Home.css';
@@ -23,6 +24,13 @@ const Home = () => {
     getPosts();
   }, []);
 
+  const navigate = useNavigate();
+  const handleDelete = async (id) => {
+    await deleteDoc(doc(db, 'posts', id));
+    // navigate('/');
+    window.location.href = '/';
+  };
+
   return (
     <div className="home_container">
       {postList.map((post, index) => {
@@ -35,7 +43,7 @@ const Home = () => {
             <div className="home_post">{post.postText}</div>
             <div className="home_parts">
               <h4>{post.author.username}</h4>
-              <button>Delete</button>
+              <button onClick={() => handleDelete(post.id)}>Delete</button>
             </div>
           </div>
         );
