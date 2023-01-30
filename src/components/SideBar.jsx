@@ -1,12 +1,12 @@
 import React from 'react';
 import './SideBar.css';
 
-const SideBar = () => {
+const SideBar = ({ handleAddNote }) => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
         <h1>Note</h1>
-        <button>Add</button>
+        <button onClick={handleAddNote}>Add</button>
       </div>
       <div className="sidebar-notes">
         <div className="sidebar-note">
