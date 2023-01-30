@@ -20,14 +20,17 @@ const Navbar = ({ isAuth }) => {
         <FontAwesomeIcon icon={faHouse} />
         home
       </Link>
-      <Link to={'/create'}>
-        <FontAwesomeIcon icon={faCalendarPlus} />
-        create
-      </Link>
+
       {isAuth ? (
-        <Link to={'/logout'}>
-          <FontAwesomeIcon icon={faSignOut} /> logout
-        </Link>
+        <>
+          <Link to={'/create'}>
+            <FontAwesomeIcon icon={faCalendarPlus} />
+            create
+          </Link>
+          <Link to={'/logout'}>
+            <FontAwesomeIcon icon={faSignOut} /> logout
+          </Link>
+        </>
       ) : (
         <Link to={'/login'}>
           <FontAwesomeIcon icon={faRightToBracket} /> login

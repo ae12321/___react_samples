@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 
 import './Create.css';
 import { useNavigate } from 'react-router-dom';
 
-const Create = () => {
+const Create = ({ isAuth }) => {
   const [title, setTitle] = useState('');
   const [postText, setPostText] = useState('');
 
@@ -24,6 +24,9 @@ const Create = () => {
 
     navigate('/');
   };
+  useEffect(() => {
+    if (!isAuth) navigate('/');
+  }, []);
   return (
     <div className="createPost">
       {/* some parts move all at once*/}

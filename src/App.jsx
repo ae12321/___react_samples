@@ -14,7 +14,7 @@ function App() {
       <Navbar isAuth={isAuth} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/create" element={<Create />}></Route>
+        <Route path="/create" isAuth={isAuth} element={<Create />}></Route>
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />}></Route>
         <Route
           path="/logout"
