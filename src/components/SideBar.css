@@ -1,0 +1,41 @@
+button {
+  background: none;
+  border: none;
+  color: aqua;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.sidebar {
+  width: 30%;
+  height: 100vh;
+  border-right: 1px solid #000;
+}
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.sidebar-header h1 {
+  margin: 0;
+}
+.sidebar-notes {
+  height: calc(100vh - 80px);
+  overflow-y: scroll;
+}
+.sidebar-note {
+  padding: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sidebar-note-title {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar-note small {
+  color: #333;
+}
+.sidebar-note:hover {
+  background-color: #eee;
+}
