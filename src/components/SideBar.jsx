@@ -1,7 +1,7 @@
 import React from 'react';
 import './SideBar.css';
 
-const SideBar = ({ handleAddNote }) => {
+const SideBar = ({ handleAddNote, notes }) => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
@@ -9,14 +9,22 @@ const SideBar = ({ handleAddNote }) => {
         <button onClick={handleAddNote}>Add</button>
       </div>
       <div className="sidebar-notes">
-        <div className="sidebar-note">
-          <div className="sidebar-note-title">
-            <strong>Title</strong>
-            <button>Delete</button>
+        {notes.map((note, index) => (
+          <div key={index} className="sidebar-note">
+            <div className="sidebar-note-title">
+              <strong>{note.title}</strong>
+              <button>Delete</button>
+            </div>
+            <p>{note.content}</p>
+            <small>
+              Last Edit:{' '}
+              {new Date(note.lastEditBy).toLocaleDateString('ja-JP', {
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+            </small>
           </div>
-          <p>This is Note...</p>
-          <small>Last Edit: xx:xx</small>
-        </div>
+        ))}
       </div>
     </div>
   );

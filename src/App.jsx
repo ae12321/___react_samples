@@ -17,7 +17,7 @@ function App() {
   };
   return (
     <div className="App">
-      <SideBar handleAddNote={handleAddNote} />
+      <SideBar handleAddNote={handleAddNote} notes={notes} />
       <Main />
     </div>
   );
