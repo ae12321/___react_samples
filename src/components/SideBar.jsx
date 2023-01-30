@@ -9,8 +9,8 @@ const SideBar = ({ handleAddNote, notes }) => {
         <button onClick={handleAddNote}>Add</button>
       </div>
       <div className="sidebar-notes">
-        {notes.map((note, index) => (
-          <div key={index} className="sidebar-note">
+        {notes.map((note) => (
+          <div key={note.id} className="sidebar-note">
             <div className="sidebar-note-title">
               <strong>{note.title}</strong>
               <button>Delete</button>
