@@ -39,3 +39,11 @@ textarea {
   padding-top: 0;
   line-height: 2rem;
 }
+.not-found {
+  width: 70%;
+  height: 100vh;
+  text-align: center;
+  line-height: 100vh;
+  font-size: 2rem;
+  color: blue;
+}

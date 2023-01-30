@@ -12,7 +12,12 @@ function App() {
     console.log('add note');
     const newState = [
       ...notes,
-      { id: uuid(), title: 'new note created!', lastEditBy: Date.now() },
+      {
+        id: uuid(),
+        title: 'note title xx',
+        content: 'new note created!',
+        lastEditBy: Date.now(),
+      },
     ];
     setNotes(newState);
     console.log(notes);
@@ -22,6 +27,11 @@ function App() {
     const newState = notes.filter((note) => note.id !== id);
     setNotes(newState);
   };
+
+  const getActiveNote = (id) => {
+    return notes.find((note) => note.id === id);
+  };
+  console.log(getActiveNote(activeNote));
   return (
     <div className="App">
       <SideBar
@@ -31,7 +41,7 @@ function App() {
         activeNote={activeNote}
         setActiveNote={setActiveNote}
       />
-      <Main />
+      <Main activeNote={getActiveNote(activeNote)} />
     </div>
   );
 }
