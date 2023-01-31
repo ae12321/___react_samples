@@ -1,6 +1,7 @@
-export const increment = () => {
+export const increment = (num) => {
   return {
     type: 'increment',
+    payload: num,
   };
 };
 export const decrement = () => {

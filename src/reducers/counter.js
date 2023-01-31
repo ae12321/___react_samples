@@ -1,7 +1,7 @@
 export const counterReducer = (state = 0, action) => {
   switch (action.type) {
     case 'increment':
-      return state + 1;
+      return state + action.payload;
     case 'decrement':
       return state - 1;
     default:
